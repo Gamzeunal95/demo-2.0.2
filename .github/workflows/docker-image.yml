@@ -17,8 +17,8 @@ jobs:
     - run: bin/phpunit
 
     - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env: 
+      uses: SonarSource/sonarcloud-github-action@master
+      env: 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     - name: Login to Docker Hub
