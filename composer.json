@@ -25,7 +25,7 @@
         "symfony/console": "^6.0",
         "symfony/dotenv": "^6.0",
         "symfony/expression-language": "^6.0",
-        "symfony/flex": "^2.0",
+        "symfony/flex": "^2.2",
         "symfony/form": "^6.0",
         "symfony/framework-bundle": "^6.0",
         "symfony/intl": "^6.0",
