@@ -13,7 +13,7 @@ jobs:
     - name: PHPUnit tests
       uses: php-actions/phpunit@v3
       with:
-        configuration: "bin/phpunit"
+        configuration: "/bin/phpunit"
         memory_limit: "256M"
         
   buildandpush:
