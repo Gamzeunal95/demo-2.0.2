@@ -8,7 +8,7 @@ on:
 
 jobs:
         
-  test-build-push:
+  test-build-push-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -32,3 +32,19 @@ jobs:
 
     - name: Push Docker Image to Docker Hub
       run: docker push gamzeunal95/my-symfony-app:latest
+    
+    - name: 'Deploy'
+      uses: 'deliverybot/helm@v1'
+      with:
+        release: 'main'
+        namespace: 'default'
+        chart: 'https://raw.githubusercontent.com/Gamzeunal95/helm-symfony/main/index/index.yaml'
+        token: '${{ github.token }}'
+        values: |
+          name: foobar
+        value-files: >-
+        [
+          "values.yaml"
+        ]
+      env:
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
